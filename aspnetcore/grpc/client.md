@@ -25,12 +25,12 @@ var channel = GrpcChannel.ForAddress("https://localhost:5001");
 var client = new Greet.GreeterClient(channel);
 ```
 
-A channel represents a long-lived connection to a gRPC service. When a channel is created it is configured with options related to calling a service. For example, the `HttpClient` used to make calls, the maximum send and receive message size, and logging are options on `GrpcChannelOptions` that can be passed to `GrpcChannel.ForAddress`. For a complete list of options, see [client configuration options](xref:grpc/configuration#configure-client-options).
+A channel represents a long-lived connection to a gRPC service. When a channel is created it is configured with options related to calling a service. For example, the `HttpClient` used to make calls, the maximum send and receive message size, and logging can be specified on `GrpcChannelOptions` and used with `GrpcChannel.ForAddress`. For a complete list of options, see [client configuration options](xref:grpc/configuration#configure-client-options).
 
-Creating a channel can be an expensive operation and reusing a channel for gRPC calls offers performance benefits. Multiple gRPC clients can be created from a channel, including different types of clients. Concrete gRPC client types are lightweight objects and can be created when needed.
+Creating a channel can be an expensive operation and reusing a channel for gRPC calls offers performance benefits. Multiple concrete gRPC clients can be created from a channel, including different types of clients. Concrete gRPC client types are lightweight objects and can be created when needed.
 
 ```csharp
-var channel = CreateChannel("https://localhost:5001");
+var channel = GrpcChannel.ForAddress("https://localhost:5001");
 
 var greeterClient = new Greet.GreeterClient(channel);
 var counterClient = new Count.CounterClient(channel);

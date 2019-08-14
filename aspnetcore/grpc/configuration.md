@@ -37,7 +37,7 @@ The following table describes options for configuring gRPC channels:
 
 | Option | Default Value | Description |
 | ------ | ------------- | ----------- |
-| `HttpClient` | New `HttpClient` instance | The `HttpClient` used to make gRPC calls. A new client can be set to configure a custom `HttpClientHandler`, or add additional handlers to the HTTP pipeline for gRPC calls. By default a new `HttpClient` instance is created. |
+| `HttpClient` | New instance | The `HttpClient` used to make gRPC calls. A client can be set to configure a custom `HttpClientHandler`, or add additional handlers to the HTTP pipeline for gRPC calls. By default a new `HttpClient` instance is created. |
 | `SendMaxMessageSize` | `null` | The maximum message size in bytes that can be sent from the client. Attempting to send a message that exceeds the configured maximum message size results in an exception. |
 | `ReceiveMaxMessageSize` | 4 MB | The maximum message size in bytes that can be received by the client. If the server receives a message that exceeds this limit, it throws an exception. Increasing this value allows the server to receive larger messages, but can negatively impact memory consumption. |
 | `TransportOptions` | `null` | Transport options configure how the channel calls the gRPC service. Currently the only implementation is `HttpClientTransport` options lets you specify the `HttpClient` used by gRPC. |
